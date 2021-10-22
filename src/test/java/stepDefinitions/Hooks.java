@@ -3,6 +3,7 @@ package stepDefinitions;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,8 @@ public class Hooks {
         if (System.getProperty("os.name").contains("Mac") || System.getProperty("os.name").contains("mac"))
             System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver");
         else
-            System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
+            //System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
+         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

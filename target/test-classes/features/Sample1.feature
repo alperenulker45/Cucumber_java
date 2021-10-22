@@ -9,3 +9,6 @@ Feature: Introduction to cucumber part 1
     And I should see menu
 
 
+  Scenario: Task1 scenario
+    When I am on number page
+    And I should see number page header
